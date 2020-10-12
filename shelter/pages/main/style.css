@@ -1,4 +1,12 @@
-body {
-    width: 1920px;
-    align-content: center;
+.header {
+    width: 100vw;
+    position: sticky;
+    top: 0;
+}
+
+.wrapper {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;    
+    background-color: cornflowerblue;
 }
