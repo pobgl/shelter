@@ -10,3 +10,29 @@
     max-width: 1200px;    
     background-color: cornflowerblue;
 }
+
+.header-logo{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-logo-title {
+    color: #F1CDB3;
+    font-family: Georgia;
+    font-size: 32px;
+    letter-spacing: 6%;
+    line-height: 110%;
+
+}
+
+.header-logo-subtitle {
+    color: #FFFFFF;
+    font-size: 13px;
+    letter-spacing: 10%;
+    line-height: 110%;
+}
+
+.header-menu {
+    display: flex;
+    
+}
