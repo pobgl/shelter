@@ -12,6 +12,93 @@ $color-dark-xl: #4C4C4C;
 $color-dark-2xl: #444444;
 $color-dark-3xl: #292929;
 
+$start-screen-gradient-background: url(assets/noise_lines_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;                                   
+$footer-gradient-background: url(assets/noise_lines_transparent.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+
+@mixin h2 {
+    font: {
+        font-family: Georgia;
+        font-weight: 400;
+        font-size: 44px;
+    }
+    line-height: 130%;
+}
+
+@mixin h3 {
+    font: {
+        font-family: Georgia;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 35px;
+    }
+    line-height: 130%;
+    letter-spacing: 0.06rem;  
+}
+
+@mixin h4 {
+    font: {    
+        font-family: Georgia;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+    }
+    line-height: 115%;
+    letter-spacing: 0.06rem;  
+}
+
+@mixin h4 {
+    font: {    
+        font-family: Georgia;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+    }
+    line-height: 110%;
+    letter-spacing: 0.06rem; 
+}
+
+@mixin paragraph-l {
+    font: {
+        font-family: Arial;
+        font-size: 15px;
+    }
+    line-height: 160%;
+}
+
+@mixin paragraph-s {
+    font: {
+        font-family: Arial;
+        font-style: italic;
+        font-weight: normal;
+        font-size: 12px;
+    }
+    line-height: 150%;
+}
+
+@mixin logo_title {
+    font: {
+        font-family: Georgia;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 32px;    
+    }
+    line-height: 110%;
+    letter-spacing: 0.06rem;
+}
+
+@mixin logo_subtitle {
+    font: {
+        font-family: Arial;
+        font-size: 13px;
+    }
+    line-height: 110%;
+    letter-spacing: 0.1rem;  
+}
+
+// :root {
+//     font-size: 10px;
+// }
+
 * {
 margin: 0;
 padding: 0;
@@ -22,6 +109,7 @@ box-sizing: border-box;
 
 .header {
     width: 100vw;
+    max-width: 100%;
     position: absolute;
     top: 60px;
 }
@@ -39,34 +127,30 @@ box-sizing: border-box;
 .wrapper {
     display: flex;
     margin: 0 auto;
-    max-width: 75rem;    
+    max-width: 1200px;    
     justify-content: space-between;
 }
 
-.logo{
+.logo {
     display: flex;
     flex-direction: column;
+    
+    &__title {
+        color: $color-primary;
+        @include logo_title();
+    }
+
+    &__subtitle {
+        margin-top: 10px;
+        text-align: center;
+        color: $color-light-xl;
+        @include logo_subtitle();
+    }
 }
 
-.logo__title {
-    color: $color-primary;
-    font-family: Georgia;
-    font-size: 2rem;
-    letter-spacing: 0.12rem;
-    line-height: 110%;
-    font-weight: 400;
 
-}
 
-.logo__subtitle {
-    margin-top: 10px;
-    color: $color-light-xl;
-    font-size: 0.8125rem;
-    line-height: 110%;
-    text-align: center;
-    letter-spacing: 0.12rem;
-    font-weight: 400;
-}
+
 
 .menu {
     display: flex;
@@ -77,29 +161,30 @@ box-sizing: border-box;
     justify-content: space-between;
     list-style-type: none;
     width : 100vw;
+
+    .list__item {
+        display: flex;
+        align-items: center;
+
+        .list__link {
+            color: color-light-xl;
+            @include paragraph-l();
+
+            &_active {
+                border-bottom: solid 3px $color-primary;
+            
+            }
+            
+            &_disabled {
+                color: $color-dark-s;
+            }
+        }
+    }
 }
 
-.list__item {
-    display: flex;
-    align-items: center;
-}
 
-.list__link {
-    color: color-light-xl;
-    font-family: Arial, sans-serif;
-    font-size: 0.9375rem;
-    line-height: 160%;
-    font-weight: 400;
-}
 
-.list__link_active {
-    border-bottom: solid 3px $color-primary;
 
-}
-
-.list__link_disabled {
-    color: $color-dark-s;
-}
 
 .main {
     display: flex;
@@ -109,7 +194,7 @@ box-sizing: border-box;
 .hero {
     display: flex;  
     padding-top: 180px;
-    background: url(assets/noise_lines_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;  
+    background: $start-screen-gradient-background;  
 }
 
 .hero__content {
@@ -126,17 +211,18 @@ box-sizing: border-box;
 .content-section__title {
     color: $color-light-xl;
     font-family: Georgia, serif;
-    font-size: 2.75rem;
+    font-size: 44px;
     line-height: 130%;
-    max-width: 19.375rem;
+    max-width: 310px;
     font-weight: 400;    
 }
 
 .content-section__subtitle {
-    margin-top: 2.625rem;
+    margin-top: 42px;
     color: $color-dark-s;
     line-height: 160%;
-    font-family: Arial;    
+    font-family: Arial;
+    font-size: 15px;    
 }
 
 .content-section__button {
@@ -147,3 +233,4 @@ box-sizing: border-box;
     padding: 15px 45px;
     background-color: $color-primary;
 }
+
