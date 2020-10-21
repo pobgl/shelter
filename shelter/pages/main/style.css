@@ -1,3 +1,7 @@
+:root {
+  font-size: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -42,22 +46,22 @@
 
 .logo__title {
   color: #F1CDB3;
-  font-font-family: Georgia;
-  font-font-style: normal;
-  font-font-weight: normal;
-  font-font-size: 32px;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
   line-height: 110%;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.2rem;
 }
 
 .logo__subtitle {
   margin-top: 10px;
   text-align: center;
   color: #FFFFFF;
-  font-font-family: Arial;
-  font-font-size: 13px;
+  font-family: Arial;
+  font-size: 13px;
   line-height: 110%;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.13rem;
 }
 
 .menu {
@@ -88,13 +92,14 @@
 
 .list .list__item .list__link {
   color: color-light-xl;
-  font-font-family: Arial;
-  font-font-size: 15px;
+  font-family: Arial;
+  font-size: 15px;
   line-height: 160%;
 }
 
 .list .list__item .list__link_active {
   border-bottom: solid 3px #F1CDB3;
+  color: #FAFAFA;
 }
 
 .list .list__item .list__link_disabled {
@@ -116,13 +121,25 @@
   display: -ms-flexbox;
   display: flex;
   padding-top: 180px;
-  background: url(assets/noise_lines_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+  background: url(../../assets/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 
 .hero__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.hero__image-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hero__image {
+  width: 100vw;
+  max-width: 698px;
+  max-height: 728px;
 }
 
 .content-section {
@@ -136,32 +153,39 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-bottom: 84px;
+  padding-bottom: 80px;
 }
 
 .content-section__title {
   color: #FFFFFF;
-  font-family: Georgia, serif;
+  max-width: 310px;
+  font-family: Georgia;
+  font-weight: 400;
   font-size: 44px;
   line-height: 130%;
-  max-width: 310px;
-  font-weight: 400;
 }
 
 .content-section__subtitle {
   margin-top: 42px;
+  padding-right: 42px;
   color: #CDCDCD;
-  line-height: 160%;
   font-family: Arial;
   font-size: 15px;
+  line-height: 160%;
 }
 
 .content-section__button {
-  margin-top: 42px;
+  margin-top: 40px;
   width: 207px;
   border-radius: 100px;
   border: none;
   padding: 15px 45px;
   background-color: #F1CDB3;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.1rem;
 }
 /*# sourceMappingURL=style.css.map */
