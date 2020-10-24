@@ -32,7 +32,7 @@ $footer-gradient-background: url(../../assets/noise_transparent.png), radial-gra
         size: 35px;
     }
     line-height: 130%;
-    letter-spacing: 0.06rem;  
+    letter-spacing: 0.2rem;  
 }
 
 @mixin h4 {
@@ -95,6 +95,13 @@ $footer-gradient-background: url(../../assets/noise_transparent.png), radial-gra
     letter-spacing: 0.13rem;  
 }
 
+@mixin slider_button {
+    border: 3px solid $color-primary; 
+    border-radius: 100%;
+    padding: 19px;
+    background: none;       
+}
+
 :root {
     font-size: 10px;
 }
@@ -124,6 +131,7 @@ box-sizing: border-box;
 }
 
 .wrapper {
+    width: 100%;
     display: flex;
     margin: 0 auto;
     max-width: 1200px;    
@@ -145,10 +153,6 @@ box-sizing: border-box;
         color: $color-light-xl;
         @include logo_subtitle();
     }
-}
-
-.menu {
-    display: flex;
 }
 
 .list {
@@ -237,5 +241,83 @@ box-sizing: border-box;
     }
 }
 
+.about {
+    display: flex;
+    
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        padding: 80px 175px 100px 175px;
+        justify-content: space-between;
+    }
+
+    &__image-wrapper {
+        display: flex;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 430px;
+    }
+
+    &__title {
+        span {
+            display: block;
+        }
+
+        color: $color-dark-l;
+        @include h3;
+    }
+
+    &__description {
+        margin-top: 25px;
+        p {
+            &:nth-child(2) {
+                margin-top: 25px;
+            }
+            color: $color-dark-xl;
+            @include paragraph-l();
+        }
+    }
+}
+
+.pets {
+    padding-top: 80px;
+    padding-bottom: 100px;
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;        
+    }
+
+    &__title {
+        span {
+            display: block;
+        }
+
+        color: $color-dark-l;
+        @include h3();
+        max-width: 400px;
+        text-align: center;
+    }
+
+    &__content {
+        display: flex;
+
+        .slider-button {
+            @include slider_button();
+        }
+        
+        .slider-button_reverted {
+            @include slider_button();
+            transform: rotate(180deg);
+        }
+        
+    }    
+}
 
 
