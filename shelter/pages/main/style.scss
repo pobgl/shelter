@@ -46,7 +46,7 @@ $footer-gradient-background: url(../../assets/noise_transparent.png), radial-gra
     letter-spacing: 0.12rem;  
 }
 
-@mixin h4 {
+@mixin h5 {
     font: {    
         family: Georgia;
         style: normal;
@@ -96,24 +96,57 @@ $footer-gradient-background: url(../../assets/noise_transparent.png), radial-gra
 }
 
 @mixin slider_button {
-    border: 3px solid $color-primary; 
+    cursor: pointer;
+    width: 52px;
+    height: 52px;
+    border: none; 
     border-radius: 100%;
     padding: 19px;
-    background: none;       
+    background: none;
+    box-shadow: inset 0 0 0 3px $color-primary;
+    outline: none;  
+    
+    &:hover {
+        background-color: $color-primary-light;
+        box-shadow: inset 0 0 0 2px $color-primary-light;
+    }
 }
 
-@mixin button($color) {
-    width: 100%;
+@mixin button() {
     border-radius: 100px;
-    border: none;
+    cursor: pointer; 
     padding: 15px 45px;
-    background-color: $color;
     font-family: Georgia;
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
     line-height: 130%;
-    letter-spacing: 0.1 rem; 
+    letter-spacing: 0.10rem;
+    outline: none;
+}
+
+@mixin button_primary() {
+    background-color: $color-primary;
+    border: none;
+
+    &:hover {
+        background-color: $color-primary-light;
+    }
+
+    @include button;     
+}
+
+@mixin button_secondary() {
+    box-shadow: inset 0 0 0 2px $color-primary;
+    background: none;
+    border: none;
+
+    &:hover {
+        box-shadow: inset 0 0 0 2px $color-primary-light;
+        background-color: $color-primary-light;
+    }
+       
+    @include button;     
 }
 
 :root {
@@ -135,9 +168,6 @@ box-sizing: border-box;
     top: 60px;
 }
 
-.body {
-   
-}
 
 .menu {
    width: 443px; 
@@ -173,7 +203,7 @@ box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     list-style-type: none;
-    width : 100vw;
+    width : 100%;
 
     .list__item {
         display: flex;
@@ -225,7 +255,7 @@ box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
     padding-bottom: 80px;
-    
+        
     &__title {
         color: $color-light-xl;
         max-width: 310px;
@@ -241,7 +271,7 @@ box-sizing: border-box;
     
     &__button {
         margin-top: 40px;
-        @include button($color-primary)      
+        @include button_primary();      
     }
 }
 
@@ -300,6 +330,10 @@ box-sizing: border-box;
         align-items: center;        
     }
 
+    &__button {
+        @include button_primary();
+    }
+
     &__title {
         span {
             display: block;
@@ -313,31 +347,41 @@ box-sizing: border-box;
 
     &__content {
         display: flex;
+        align-items: center;
 
-        .pets__cards {
-            display: flex;            
+        .pets-cards {
+            display: flex;
+            padding: 0 8px;
+                                 
         }
 
         .pets-card {
             display: flex;
             flex-direction: column;
-
+            border-radius: 9px;
+            margin: 0 4.5rem;
+            padding: 60px 0;
+            
             &__image {
                 width: 100%
+                 
             }
 
             &__content {
-             display: flex;
-             flex-direction: column;   
+                align-items: center;
+                display: flex;
+                flex-direction: column; 
+                padding-bottom: 30px;  
             }
 
             &__title {
                 @include h4;
-                letter-spacing: 0;
+                text-align: center;
+                margin: 30px 0;
             }
 
             &__button {
-                
+                @include button_secondary();   
             }
         }
 
