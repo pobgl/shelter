@@ -172,7 +172,7 @@ box-sizing: border-box;
     align-items: center;
     width: 100vw;
     max-width: 100%;
-    position: sticky;
+    position: fixed;
     min-height: 120px;
     background-color: $color-light-xl;
     z-index: 2;
@@ -198,6 +198,7 @@ box-sizing: border-box;
     &__title {
         color: $color-dark-l;
         @include logo_title();
+        text-decoration: none;
     }
 
     &__subtitle {
@@ -216,26 +217,17 @@ box-sizing: border-box;
 
     .list__item {
         display: flex;
-        align-items: center;
-        
-
-        :hover  {
-            border-bottom: solid 3px $color-primary;
-            color: $color-dark-xl;            
-        }
-
-        
+        align-items: center;       
 
         .list__link {
             color: $color-dark-l;
-            @include paragraph-l();
-            cursor: pointer;
-            text-decoration: none;
-            
+            @include paragraph-l();            
+            text-decoration: none;            
 
             &_active {
                 border-bottom: solid 3px $color-primary;
-                color: $color-dark-xl;            
+                color: $color-dark-xl;
+                cursor: pointer;            
             }
             
             &_disabled {
@@ -243,12 +235,22 @@ box-sizing: border-box;
 
                 
             }
+
+            &_enabled {
+                color: $color-dark-s;
+                
+            }
+
+            &_enabled:hover {
+                border-bottom: solid 3px $color-primary;
+                color: $color-dark-xl;            
+            }
         }
     }
 }
 
 .pets {
-    padding-top: 80px;
+    padding-top: 200px;
     padding-bottom: 100px;
     background-color: $color-light-l;    
 
@@ -350,8 +352,9 @@ box-sizing: border-box;
             box-shadow: inset 0 0 0 2px $color-dark-s;
             
             &:hover {
-                background-color: $color-dark-m;
-                box-shadow: inset 0 0 0 2px $color-dark-m;
+                background-color: $color-light-l;
+                box-shadow: inset 0 0 0 2px $color-dark-s;
+                cursor: auto;
             }
         }
         
@@ -413,11 +416,13 @@ box-sizing: border-box;
         &-phone {
             display: flex;
             align-items: center;
+            
                         
             &-text {
                 margin-left: 20px;
                 @include h4();
                 color: $color-primary; 
+                text-decoration: none;
             }
         }
     }

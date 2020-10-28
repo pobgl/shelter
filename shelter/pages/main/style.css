@@ -85,11 +85,6 @@
           align-items: center;
 }
 
-.list .list__item :hover {
-  border-bottom: solid 3px #F1CDB3;
-  color: #FAFAFA;
-}
-
 .list .list__item .list__link {
   color: color-light-xl;
   font-family: Arial;
@@ -101,10 +96,20 @@
 .list .list__item .list__link_active {
   border-bottom: solid 3px #F1CDB3;
   color: #FAFAFA;
+  cursor: pointer;
 }
 
 .list .list__item .list__link_disabled {
   color: #CDCDCD;
+}
+
+.list .list__item .list__link_enabled {
+  color: #CDCDCD;
+}
+
+.list .list__item .list__link_enabled:hover {
+  border-bottom: solid 3px #F1CDB3;
+  color: #FAFAFA;
 }
 
 .main {
@@ -715,6 +720,7 @@
   line-height: 115%;
   letter-spacing: 0.12rem;
   color: #F1CDB3;
+  text-decoration: none;
 }
 
 .footer__locations {

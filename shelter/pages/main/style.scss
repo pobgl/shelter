@@ -215,12 +215,9 @@ box-sizing: border-box;
     .list__item {
         display: flex;
         align-items: center;
+        
 
-        :hover  {
-            border-bottom: solid 3px $color-primary;
-            color: $color-light-s;            
-        }
-
+        
         .list__link {
             color: color-light-xl;
             @include paragraph-l();
@@ -228,12 +225,23 @@ box-sizing: border-box;
 
             &_active {
                 border-bottom: solid 3px $color-primary;
-                color: $color-light-s;            
+                color: $color-light-s; 
+                cursor: pointer;           
             }
             
             &_disabled {
                 color: $color-dark-s;
             }
+
+            &_enabled {
+                color: $color-dark-s;                
+            }
+            
+            &_enabled:hover  {
+                border-bottom: solid 3px $color-primary;
+                color: $color-light-s;            
+            }
+
         }
     }
 }
@@ -557,7 +565,8 @@ box-sizing: border-box;
             &-text {
                 margin-left: 20px;
                 @include h4();
-                color: $color-primary; 
+                color: $color-primary;
+                text-decoration: none; 
             }
         }
     }

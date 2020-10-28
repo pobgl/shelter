@@ -18,8 +18,7 @@
           align-items: center;
   width: 100vw;
   max-width: 100%;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   min-height: 120px;
   background-color: #FFFFFF;
   z-index: 2;
@@ -62,6 +61,7 @@
   font-size: 32px;
   line-height: 110%;
   letter-spacing: 0.192rem;
+  text-decoration: none;
 }
 
 .logo__subtitle {
@@ -94,31 +94,35 @@
           align-items: center;
 }
 
-.list .list__item :hover {
-  border-bottom: solid 3px #F1CDB3;
-  color: #4C4C4C;
-}
-
 .list .list__item .list__link {
   color: #545454;
   font-family: Arial;
   font-size: 15px;
   line-height: 160%;
-  cursor: pointer;
   text-decoration: none;
 }
 
 .list .list__item .list__link_active {
   border-bottom: solid 3px #F1CDB3;
   color: #4C4C4C;
+  cursor: pointer;
 }
 
 .list .list__item .list__link_disabled {
   color: #CDCDCD;
 }
 
+.list .list__item .list__link_enabled {
+  color: #CDCDCD;
+}
+
+.list .list__item .list__link_enabled:hover {
+  border-bottom: solid 3px #F1CDB3;
+  color: #4C4C4C;
+}
+
 .pets {
-  padding-top: 80px;
+  padding-top: 200px;
   padding-bottom: 100px;
   background-color: #F6F6F6;
 }
@@ -326,9 +330,10 @@
 }
 
 .pets__button-wrapper .pets__button-left:hover {
-  background-color: #B2B2B2;
-  -webkit-box-shadow: inset 0 0 0 2px #B2B2B2;
-          box-shadow: inset 0 0 0 2px #B2B2B2;
+  background-color: #F6F6F6;
+  -webkit-box-shadow: inset 0 0 0 2px #CDCDCD;
+          box-shadow: inset 0 0 0 2px #CDCDCD;
+  cursor: auto;
 }
 
 .pets__button-wrapper .pets__button-number {
@@ -475,6 +480,7 @@
   line-height: 115%;
   letter-spacing: 0.12rem;
   color: #F1CDB3;
+  text-decoration: none;
 }
 
 .footer__locations {
