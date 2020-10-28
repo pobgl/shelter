@@ -100,7 +100,7 @@ $footer-gradient-background: url(../../assets/noise_transparent.png), radial-gra
 @mixin slider_button {
     cursor: pointer;
     display: flex;
-    justify-content: center;
+    text-align: center;
     width: 52px;
     height: 52px;
     border: none; 
@@ -168,12 +168,15 @@ box-sizing: border-box;
 }
 
 .header {
+    display: flex;
+    align-items: center;
     width: 100vw;
     max-width: 100%;
-    position: absolute;
-    top: 60px;
+    position: sticky;
+    min-height: 120px;
+    background-color: $color-light-xl;
+    z-index: 2;
 }
-
 
 .menu {
    width: 443px; 
@@ -185,7 +188,7 @@ box-sizing: border-box;
     display: flex;
     margin: 0 auto;
     max-width: 1200px;    
-    justify-content: space-between;
+    justify-content: space-between;    
 }
 
 .logo {
@@ -193,14 +196,14 @@ box-sizing: border-box;
     flex-direction: column;
     
     &__title {
-        color: $color-primary;
+        color: $color-dark-l;
         @include logo_title();
     }
 
     &__subtitle {
         margin-top: 10px;
         text-align: center;
-        color: $color-light-xl;
+        color: $color-dark-l;
         @include logo_subtitle();
     }
 }
@@ -210,124 +213,36 @@ box-sizing: border-box;
     justify-content: space-between;
     list-style-type: none;
     width : 100%;
-    
 
     .list__item {
         display: flex;
         align-items: center;
+        
 
         :hover  {
             border-bottom: solid 3px $color-primary;
-            color: $color-light-s;            
+            color: $color-dark-xl;            
         }
 
+        
+
         .list__link {
-            color: color-light-xl;
+            color: $color-dark-l;
             @include paragraph-l();
+            cursor: pointer;
             text-decoration: none;
+            
 
             &_active {
                 border-bottom: solid 3px $color-primary;
-                color: $color-light-s;            
+                color: $color-dark-xl;            
             }
             
             &_disabled {
                 color: $color-dark-s;
+
+                
             }
-        }
-    }
-}
-
-.main {
-    display: flex;
-    flex-direction: column;    
-}
-
-.hero {
-    display: flex;  
-    padding-top: 180px;
-    background: $start-screen-gradient-background; 
-    
-    &__content {
-        display: flex;
-    }
-
-    &__image-wrapper {
-        display: flex;
-    }
-
-    &__image {
-        width: 100vw;
-        max-width: 698px;
-        max-height: 728px;
-    }
-}
-
-.content-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-bottom: 80px;
-        
-    &__title {
-        color: $color-light-xl;
-        max-width: 310px;
-        @include h2();   
-    }
-    
-    &__subtitle {
-        margin-top: 42px;
-        padding-right: 42px;
-        color: $color-dark-s;
-        @include paragraph-l();  
-    }
-    
-    &__button {
-        margin-top: 40px;
-        @include button_primary();      
-    }
-}
-
-.about {
-    display: flex;
-    
-    &__wrapper {
-        width: 100%;
-        display: flex;
-        padding: 80px 175px 100px 175px;
-        justify-content: space-between;
-    }
-
-    &__image-wrapper {
-        display: flex;
-    }
-
-    &__content {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        max-width: 430px;
-    }
-
-    &__title {
-        span {
-            display: block;
-        }
-
-        color: $color-dark-l;
-        @include h3;
-    }
-
-    &__description {
-        margin-top: 25px;
-
-        p {
-            & + p {
-                margin-top: 25px;
-            }
-
-            color: $color-dark-xl;
-            @include paragraph-l();
         }
     }
 }
@@ -335,7 +250,7 @@ box-sizing: border-box;
 .pets {
     padding-top: 80px;
     padding-bottom: 100px;
-    background-color: $color-light-l;
+    background-color: $color-light-l;    
 
     &__wrapper {
         width: 100%;
@@ -360,20 +275,34 @@ box-sizing: border-box;
     }
 
     &__content {
-        display: flex;
+        width: 100%;
+        display: block;
         align-items: center;
+        
 
-        .pets-cards {
+        .pets-cards-top {
+            width: 100%;
             display: flex;
-            padding: 0 8px;
+            justify-content: space-between;
+            padding-top: 60px
+                                
+        }
+
+        .pets-cards-bottom {
+            padding-top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            
                                  
         }
 
         .pets-card {
+            
             display: flex;
             flex-direction: column;
             border-radius: 9px;
-            margin: 60px 45px 59px;
+            
             padding: 0 0;
             background-color: $color-light-s;
 
@@ -404,120 +333,51 @@ box-sizing: border-box;
             }
         }
 
-        .slider-button {
-            @include slider_button();
+    } 
+    &__button-wrapper {
+        display: flex;
+        width: 340px;
+        justify-content: space-between;
+        padding-top: 60px;
+        
+
+        .pets__button-left {
+            @include slider_button(); 
+            padding: 13px;
+            color: $color-dark-s;
+            @include h4();
+            justify-content: center; 
+            box-shadow: inset 0 0 0 2px $color-dark-s;
+            
+            &:hover {
+                background-color: $color-dark-m;
+                box-shadow: inset 0 0 0 2px $color-dark-m;
+            }
         }
         
-        .slider-button_reverted {
+        .pets__button-number {
             @include slider_button();
-            transform: rotate(180deg);
+            padding: 13px;
+            color: $color-dark-3xl;
+            @include h4();
+            justify-content: center;
+            background-color: $color-primary; 
+
+            &:hover {
+                box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+                border-radius: 100px;
+            }
+        }
+
+        .pets__button-right {
+            @include slider_button();
+            padding: 13px; 
+            color: $color-dark-3xl;
+            @include h4(); 
+            justify-content: center;           
         }        
-    }    
-}
-
-.help {
-    margin-top: 83px;
-    margin-bottom: 100px;
-
-    &__wrapper {
-        display: flex;
-        flex-direction: column;
     }
-
-    &__title {
-        color: $color-dark-l;
-        text-align: center;
-        @include h3();
-
-        span {
-            display: block;
-        }
-    }
-
-    &__content {
-        margin-top: 60px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        column-gap: 120px;
-        row-gap: 55px;
-    }
-
-    &__item {
-        display: flex;
-        flex-direction: column;        
-
-        &-title {
-            margin-top: 3rem;
-            color: $color-dark-l;
-            text-align: center;
-            @include h4();
-        }
-    }
-
-}
-
-.donation {
-    margin-top: 83px;
-    margin-bottom: 104px;
-
-    &__wrapper {
-        display: flex;
-        justify-content: center;
-    }
-
-    &__image-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-        margin-left: 30px;
-        max-width: 380px;
-        align-items: flex-start;
-    }
-
-    &__title {
-        color: $color-dark-l;
-        @include h3();
-
-        span{
-            display: block;
-        }
-    }
-
-    &__subtitle {
-        margin-top: 20px;
-        color: $color-dark-l;
-        @include h5();
-    }
-
-    &__payment{
-        @include button_primary();
-        margin-top: 20px;
-        padding: 10px 15px;
-        border-radius: 10px;
-        display: flex;
-
-        &-text{
-            padding-left: 15px;
-            text-decoration: none;
-            color: $color-dark-l;
-            @include h4();
-        }
-    }
-
-    &__description{
-        margin-top: 20px;
-        color: $color-dark-m;
-        @include paragraph-s()
-    }
-
-
+        
 }
 
 .footer {
@@ -604,4 +464,3 @@ box-sizing: border-box;
         }
     }
 }
-
